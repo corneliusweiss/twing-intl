@@ -1,0 +1,53 @@
+{
+  "name": "twing-intl",
+  "version": "0.0.1",
+  "description": "Intl extension for Twing",
+  "main": "index.js",
+  "browser": "browser.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "tsc --project .",
+    "bundle": "browserify build/browser.js -g uglifyify -u twing -s TwingIntl -o build/dist/lib.min.js",
+    "clean": "rimraf build",
+    "cover": "nyc npm t",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "postpack": "rimraf lib dist browser.* index.*",
+    "prebuild": "npm run clean",
+    "precover": "rimraf coverage .nyc_output",
+    "prepack": "npm run build -- --sourceMap false && npm run bundle && mv build/* .",
+    "pretest": "npm run build",
+    "test": "npm run fastest:all",
+    "fastest:all": "tape 'test/tests/**/test.js' | tap-bail | tap-spec"
+  },
+  "keywords": [
+    "twing",
+    "intl",
+    "twig",
+    "twig-intl"
+  ],
+  "homepage": "https://github.com/corneliusweiss/twing-intl",
+  "author": "Cornelius Weiss <c.weiss@metaways.de>",
+  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/corneliusweiss/twing-intl"
+  },
+  "devDependencies": {
+    "@types/luxon": "^1.4.1",
+    "@types/node": "^10.12.17",
+    "@types/tmp": "0.0.33",
+    "browserify": "^16.2.3",
+    "coveralls": "^3.0.2",
+    "nyc": "^13.1.0",
+    "replace-in-file": "^3.4.2",
+    "rimraf": "^2.6.2",
+    "sinon": "^7.2.2",
+    "tap-bail": "^1.0.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1",
+    "twing": "^2.1.2",
+    "typescript": "^3.2.2",
+    "uglifyify": "^5.0.1",
+    "format-message-formats": "^6.2.0"
+  }
+}

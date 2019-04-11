@@ -32,6 +32,9 @@
     "type": "git",
     "url": "git://github.com/corneliusweiss/twing-intl"
   },
+  "dependencies": {
+    "format-message-formats": "^6.2.0"
+  },
   "devDependencies": {
     "@types/luxon": "^1.4.1",
     "@types/node": "^10.12.17",
@@ -47,7 +50,6 @@
     "tape": "^4.9.1",
     "twing": "^2.1.2",
     "typescript": "^3.2.2",
-    "uglifyify": "^5.0.1",
-    "format-message-formats": "^6.2.0"
+    "uglifyify": "^5.0.1"
   }
 }

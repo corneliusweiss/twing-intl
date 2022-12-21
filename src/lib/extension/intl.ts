@@ -11,11 +11,19 @@ export class TwingExtensionIntl extends TwingExtension {
     }
 
     getFilters () {
-        return new Map([
-            [0, new TwingFilter('localizeddate', TwingExtensionIntl.localizeddate, {needs_environment: true})],
-            // [1, new TwingFilter('localizednumber', TwingExtensionIntl.localizednumber)],
-            // [2, new TwingFilter('localizedcurrency', TwingExtensionIntl.localizedcurrency)]
-        ]);
+        return [
+            new TwingFilter('localizeddate', TwingExtensionIntl.localizeddate, [
+                { name: 'date' },
+                { name: 'dateFormat' },
+                { name: 'timeFormat' },
+                { name: 'locale'},
+                { name: 'timezone'},
+                { name: 'format'},
+                { name: 'calendar'}
+            ]),
+            // new TwingFilter('localizednumber', TwingExtensionIntl.localizednumber),
+            // new TwingFilter('localizedcurrency', TwingExtensionIntl.localizedcurrency)
+        ];
     }
 
     static getLocale (locale: string) {
@@ -24,7 +32,7 @@ export class TwingExtensionIntl extends TwingExtension {
 
     // we need some help as js intl is not yet ready
     // @see https://github.com/tc39/proposal-intl-datetime-style
-    static localizeddate (env: TwingEnvironment, date: Date, dateFormat: string = 'medium', timeFormat: string = 'medium', locale: string = null, timezone: string = null, format: string = null, calendar: string = 'gregorian') {
+    static localizeddate (date: Date, dateFormat: string = 'medium', timeFormat: string = 'medium', locale: string = null, timezone: string = null, format: string = null, calendar: string = 'gregorian') {
         var options = {};
 
         if (timezone) {
@@ -43,7 +51,7 @@ export class TwingExtensionIntl extends TwingExtension {
             Object.assign(options,
                 formats.time[timeFormat] || formats.parseDatePattern(timeFormat) || formats.time.default);
         }
-        return new Intl.DateTimeFormat(TwingExtensionIntl.getLocale(locale), options).format(date);
+        return Promise.resolve(new Intl.DateTimeFormat(TwingExtensionIntl.getLocale(locale), options).format(date));
     }
 
     static localizednumber (number: Number, style: string = 'decimal', type: string = 'default', locale: string = null) {

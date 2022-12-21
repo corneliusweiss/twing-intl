@@ -1,6 +1,6 @@
 {
   "name": "twing-intl",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Intl extension for Twing",
   "main": "index.js",
   "browser": "browser.js",
@@ -33,23 +33,23 @@
     "url": "git://github.com/corneliusweiss/twing-intl"
   },
   "dependencies": {
-    "format-message-formats": "^6.2.0"
+    "format-message-formats": "^6.2.4"
   },
   "devDependencies": {
-    "@types/luxon": "^1.4.1",
-    "@types/node": "^10.12.17",
-    "@types/tmp": "0.0.33",
-    "browserify": "^16.2.3",
-    "coveralls": "^3.0.2",
-    "nyc": "^13.1.0",
-    "replace-in-file": "^3.4.2",
-    "rimraf": "^2.6.2",
-    "sinon": "^7.2.2",
+    "@types/luxon": "^3.1.0",
+    "@types/node": "^18.11.17",
+    "@types/tmp": "0.2.3",
+    "browserify": "^17.0.0",
+    "coveralls": "^3.1.1",
+    "nyc": "^15.1.0",
+    "replace-in-file": "^6.3.5",
+    "rimraf": "^3.0.2",
+    "sinon": "^15.0.1",
     "tap-bail": "^1.0.0",
     "tap-spec": "^5.0.0",
-    "tape": "^4.9.1",
-    "twing": "^2.1.2",
-    "typescript": "^3.2.2",
-    "uglifyify": "^5.0.1"
+    "tape": "^5.6.1",
+    "twing": "^5.1.2",
+    "typescript": "^4.9.4",
+    "uglifyify": "^5.0.2"
   }
 }

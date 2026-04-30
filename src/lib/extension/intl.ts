@@ -42,12 +42,12 @@ export class TwingExtensionIntl extends TwingExtension {
             });
         }
 
-        if (dateFormat) {
+        if (dateFormat && dateFormat !== 'none') {
             Object.assign(options,
                 formats.date[dateFormat] || formats.parseDatePattern(dateFormat) || formats.date.default);
         }
 
-        if (timeFormat) {
+        if (timeFormat && timeFormat !== 'none') {
             Object.assign(options,
                 formats.time[timeFormat] || formats.parseDatePattern(timeFormat) || formats.time.default);
         }

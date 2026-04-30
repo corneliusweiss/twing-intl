@@ -1,6 +1,6 @@
 {
   "name": "twing-intl",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Intl extension for Twing",
   "main": "index.js",
   "browser": "browser.js",
